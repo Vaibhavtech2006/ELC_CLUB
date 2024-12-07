@@ -1,0 +1,226 @@
+/* Header Styling */
+header {
+  background-color: #fff; /* No background color */
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #1b5e20;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 4em;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Assign specific colors to each letter */
+header .letter.p {
+  color: #ff0000; /* Red for P */
+}
+
+header .letter.r {
+  color: #ff5722; /* Orange for R */
+}
+
+header .letter.a {
+  color: #3f51b5; /* Blue for A */
+}
+
+header .letter.y {
+  color: #4caf50; /* Green for Y */
+}
+
+header .letter.s {
+  color: #9c27b0; /* Purple for S */
+}
+
+header .letter.dash {
+  color: #000000; /* Black for the dash */
+}
+
+header .letter.e {
+  color: #e91e63; /* Pink for E */
+}
+
+header .letter.l {
+  color: #2196f3; /* Light Blue for L */
+}
+
+header .letter.c {
+  color: #ff9800; /* Amber for C */
+}
+
+header .letter.t {
+  color: #9e9e9e; /* Grey for T */
+}
+
+header .letter.o {
+  color: #00bcd4; /* Cyan for O */
+}
+
+header .letter.space {
+  color: transparent; /* Make space invisible */
+}
+
+header .letter.i {
+  color: #c2185b; /* Deep Pink for I */
+}
+
+header .letter.b {
+  color: #673ab7; /* Deep Purple for B */
+}
+
+/* Hover Effect */
+header h1:hover .letter {
+  color: #fbc02d; /* Yellow on hover */
+  transform: rotate(5deg); /* Slight rotation on hover */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Paragraph Styling */
+header p {
+  font-size: 1.4em;
+  color: #333;
+  font-weight: 300;
+  margin-top: 15px;
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+header p:hover {
+  color: #2e7d32;
+  letter-spacing: 2px;
+}
+
+/* Main Section Styling */
+.recent-events {
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+.recent-events h2 {
+  text-align: center;
+  font-size: 2.8em;
+  color: #333;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #2e7d32;
+  padding-bottom: 10px;
+}
+
+/* Event Box Styling */
+.event {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Title Styling */
+.event h3 {
+  font-size: 2.4em;
+  color: #2e7d32;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Description Styling */
+.event p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.event p:hover {
+  color: #2e7d32;
+  transform: translateX(10px);
+}
+
+/* Image Container Styling with Gap */
+.event-images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 25px; /* More space between images */
+}
+
+/* Image Styling */
+.event-images img {
+  width: 48%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.event-images img:hover {
+  transform: scale(1.05) rotate(5deg);
+  opacity: 0.9;
+  filter: grayscale(0%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #2e7d32;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  .recent-events h2 {
+    font-size: 2.3em;
+  }
+
+  .event h3 {
+    font-size: 2em;
+  }
+
+  .event-images img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
