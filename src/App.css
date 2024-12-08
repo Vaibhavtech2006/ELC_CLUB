@@ -19,123 +19,270 @@ a {
   color: inherit;
 }
 
-/* Navbar Styling */
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f4f4f9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c3e50; /* New dark blue background */
   padding: 15px 30px;
+  background: linear-gradient(45deg, #2c3e50, #34495e); /* Sleek gradient */
+  color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease;
+  flex-wrap: wrap; /* Allow wrapping for mobile */
 }
 
-/* Logo Styling */
-.navbar .logo {
-  display: flex;
-  align-items: center;
+/* Logo */
+.navbar .logo img {
+  height: 50px; /* Set logo height */
 }
 
-.navbar .logo-image {
-  height: 50px;
-  width: auto;
-  margin-right: 10px;
-}
-
-/* Navbar Links */
+/* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   margin: 0;
   padding: 0;
+  justify-content: center; /* Center nav links */
+  transition: all 0.3s ease;
+  opacity: 0; /* Hide nav links by default */
+  visibility: hidden; /* Make links invisible */
+}
+/* Thinner Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 30px 15px; /* Reduce padding */
+    height: 60px; /* Decrease navbar height */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  .navbar .logo img {
+    height: 30px; /* Smaller logo size */
+  }
+
+  .menu-toggle {
+    height: 30px; /* Adjust hamburger height */
+    width: 30px;
+  }
 }
 
-/* Individual Nav Link */
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #ecf0f1; /* Light grayish color for text */
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 15px;
-  border-radius: 5px;
+/* Full-Size Navbar */
+.navbar.expanded {
+  padding: 15px 30px; /* Restore original padding */
+  height: auto; /* Adjust height dynamically */
   transition: all 0.3s ease;
 }
 
-/* Hover Effect */
-.nav-links a:hover {
-  background-color: #e74c3c; /* Red color on hover */
-  color: white;
+.navbar.expanded .logo img {
+  height: 70px; /* Restore original logo size */
 }
 
-/* Active Link */
-.nav-links a.active {
-  background-color: #3498db; /* Blue color for active state */
-  color: white;
-}
-
-/* Hamburger Icon (visible on small screens) */
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger i {
-  color: white;
-  font-size: 28px;
-}
-
-/* Responsive Navbar for Small Screens */
-@media (max-width: 768px) {
+/* Make nav links visible on large screens */
+@media (min-width: 768px) {
   .nav-links {
+    opacity: 1;
+    visibility: visible; /* Make nav links visible */
+  }
+}
+
+.nav-links li {
+  margin-left: 20px;
+  margin-top: 10px; /* Add some space on top of each link */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Mobile Toggle Button (Hamburger Menu) */
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute; /* Place it on the right corner */
+  right: 20px; /* Adjust distance from the right edge */
+  height: 50px; /* Match logo height */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the lines inside */
+  z-index: 1001;
+}
+
+/* Hamburger Menu - three lines */
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 4px auto; /* Adjust spacing between lines */
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust navbar items for smaller screens */
+  .navbar {
     flex-direction: column;
-    gap: 15px;
-    background-color: #2c3e50; /* Consistent with the main background */
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: none;
+    padding: 20px;
+    text-align: center;
   }
 
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
+  /* Hide the nav links by default on small screens */
+  .nav-links {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    margin-top: 10px;
   }
 
   .nav-links li {
+    margin: 10px 0;
+  }
+
+  /* Display the toggle button (Hamburger Menu) */
+  .menu-toggle {
+    display: flex; /* Show the hamburger on small screens */
+    height: 40px; /* Adjust height for mobile */
+  }
+
+  /* Show the nav links when the navbar has the "active" class */
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Adjust logo size on mobile */
+  .navbar .logo img {
+    height: 40px;
+    padding-right: 800px;
+  }
+  
+}
+
+
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Center nav links */
+}
+
+.nav-links li {
+  margin-left: 20px;
+  margin-top: 10px; /* Add some space on top of each link */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Mobile Toggle Button (Hamburger Menu) */
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Hamburger Menu - three lines */
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Make navbar items stack vertically */
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
     text-align: center;
   }
-}
 
-/* Navbar Hover Effect */
-.nav-links a:hover {
-  background-color: #f39c12; /* Yellow on hover */
-  color: white;
-  transform: scale(1.05); /* Slight scale-up effect */
-}
+  /* Hide the nav links by default on small screens */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+  }
 
-.navbar:hover {
-  background-color: #34495e; /* Darker shade of blue on hover */
-}
+  .nav-links li {
+    margin: 10px 0;
+  }
 
-/* Smooth transition for opening and closing navbar */
-.nav-links.show {
-  transform: translateY(0);
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Display the toggle button (Hamburger Menu) */
+  .menu-toggle {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* Show the nav links when the navbar has the "active" class */
+  .navbar.active .nav-links {
+    display: flex;
+  }
+
+  /* Adjust logo size on mobile */
+  .navbar .logo img {
+    height: 40px;
+  }
 }
 
 /* Footer Styling */
@@ -314,6 +461,11 @@ a {
 /* Style for the Events Section */
 /* Style for the Events Section */
 /* Style for the Events Section */
+
+/* Sponsors Section */
+/* Style for the Events Section */
+/* Style for the Events Section */
+/* Style for the Events Section */
 .sponsors {
   background-color: #f8d7da; /* Light red background for the entire box */
   border: 2px solid #dc3545; /* Red border around the entire section */
@@ -371,61 +523,4 @@ a {
   font-size: 1rem;
   color: #721c24; /* Darker red color for the event descriptions */
   margin-top: 10px;
-}
-
-
-/* Footer Section */
-/* General styling for container */
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures the container spans the full height of the viewport */
-}
-
-/* Main content (everything above the footer) */
-.container > .main-content {
-  flex: 1; /* Allows the main content to grow and push the footer to the bottom */
-}
-
-/* Footer styling */
-.footer {
-  background-color: #f8f8f8;
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  position: relative;
-}
-
-.footer h3 {
-  margin-bottom: 15px; /* Adds space below the heading */
-  font-size: 20px;
-  color: white;
-}
-
-.connect-icons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px; /* Adds spacing between buttons */
-  margin-top: 10px;
-}
-
-.connect-icons button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.connect-icons button:hover {
-  background-color: #0056b3;
-}
-
-.footer p {
-  margin-top: 10px;
-  color: #666;
-  font-size: 14px;
 }
