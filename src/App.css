@@ -73,7 +73,7 @@ a {
   visibility: hidden; /* Make links invisible */
 }
 /* Thinner Navbar */
-@media (max-width: 768px) {
+@media (max-width: 100px) {
   .navbar {
     padding: 30px 15px; /* Reduce padding */
     height: 60px; /* Decrease navbar height */
@@ -102,7 +102,7 @@ a {
 }
 
 /* Make nav links visible on large screens */
-@media (min-width: 768px) {
+@media (min-width: 100px) {
   .nav-links {
     opacity: 1;
     visibility: visible; /* Make nav links visible */
@@ -156,7 +156,7 @@ a {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 100px) {
   /* Adjust navbar items for smaller screens */
   .navbar {
     flex-direction: column;
@@ -249,7 +249,7 @@ a {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 100px) {
   /* Make navbar items stack vertically */
   .navbar {
     flex-direction: column;
