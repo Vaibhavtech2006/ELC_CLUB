@@ -73,10 +73,64 @@ a {
   visibility: hidden; /* Make links invisible */
 }
 /* Thinner Navbar */
-@media (max-width: 100px) {
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Initially hide nav links on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0; /* Remove any left padding that may cause overflow */
+    padding-right: 0; /* Remove any right padding that may cause overflow */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    width: 100%; /* Ensure the list item takes up the full width of the navbar */
+    padding-right: 20px; /* Adjust the right padding to push the text to the right */
+    text-align: center; /* Align the text to the right */
+  }
+  
+  /* Make the hamburger menu visible */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Show the nav links when the navbar has the "active" class */
+  .navbar.active .nav-links {
+    display: flex;
+    justify-content: center; /* Center nav items */
+  }
+
+  /* Adjust the logo size on small screens */
+  .navbar .logo img {
+    height: 40px;
+  }
+
+  /* Make text centered and prevent overflow */
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 15px;
+    text-align: center;
+    width: 100%; /* Make the anchor tag span the full width */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* If text overflows, show "..." */
+  }
+}
+
+@media (max-width: 768px) {
   .navbar {
     padding: 30px 15px; /* Reduce padding */
-    height: 60px; /* Decrease navbar height */
+    height: 80px; /* Decrease navbar height */
     transition: all 0.3s ease; /* Smooth transition */
   }
 
@@ -102,7 +156,7 @@ a {
 }
 
 /* Make nav links visible on large screens */
-@media (min-width: 100px) {
+@media (min-width: 768px) {
   .nav-links {
     opacity: 1;
     visibility: visible; /* Make nav links visible */
@@ -154,9 +208,37 @@ a {
   background-color: white;
   transition: all 0.3s ease;
 }
+/* Thinner Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px; /* Reduce padding */
+    height: 40px; /* Decrease navbar height */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  .navbar .logo img {
+    height: 30px; /* Smaller logo size */
+  }
+
+  .menu-toggle {
+    height: 30px; /* Adjust hamburger height */
+    width: 30px;
+  }
+}
+
+/* Full-Size Navbar */
+.navbar.expanded {
+  padding: 15px 30px; /* Restore original padding */
+  height: auto; /* Adjust height dynamically */
+  transition: all 0.3s ease;
+}
+
+.navbar.expanded .logo img {
+  height: 50px; /* Restore original logo size */
+}
 
 /* Responsive Design */
-@media (max-width: 100px) {
+@media (max-width: 768px) {
   /* Adjust navbar items for smaller screens */
   .navbar {
     flex-direction: column;
@@ -249,7 +331,7 @@ a {
 }
 
 /* Responsive Design */
-@media (max-width: 100px) {
+@media (max-width: 768px) {
   /* Make navbar items stack vertically */
   .navbar {
     flex-direction: column;
@@ -284,7 +366,19 @@ a {
     height: 40px;
   }
 }
+@media (max-width: 400px) {
+  /* Ensure the navbar text stays within the screen */
+  .navbar .nav-links li {
+    margin: 10px 0;
+    padding-left: 20px;  /* Keep text aligned inside the screen */
+    padding-right: 20px; /* Add padding to avoid text going outside */
+  }
 
+  /* Optionally adjust font size for better readability */
+  .nav-links a {
+    font-size: 16px;
+  }
+}
 /* Footer Styling */
 .footer {
   background-color: #1e1e2d;
@@ -461,11 +555,6 @@ a {
 /* Style for the Events Section */
 /* Style for the Events Section */
 /* Style for the Events Section */
-
-/* Sponsors Section */
-/* Style for the Events Section */
-/* Style for the Events Section */
-/* Style for the Events Section */
 .sponsors {
   background-color: #f8d7da; /* Light red background for the entire box */
   border: 2px solid #dc3545; /* Red border around the entire section */
@@ -496,31 +585,13 @@ a {
   padding-left: 0; /* Remove indentation */
 }
 
-.sponsors ul li {
-  background-color: #f8d7da; /* Light red background for list items */
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+.sponsors li {
+  font-size: 1.1rem;
+  color: #721c24; /* Darker red for the list items */
+  padding: 10px 0;
+  border-bottom: 1px solid #dc3545; /* Red border between list items */
 }
 
-/* Hover effect for list items */
-.sponsors ul li:hover {
-  transform: translateY(-5px); /* Lift the item on hover */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
-}
-
-/* Event title styling */
-.sponsors ul li strong {
-  font-size: 1.3rem;
-  color: #dc3545; /* Red color for event titles */
-  font-weight: bold;
-}
-
-/* Event description styling */
-.sponsors ul li p {
-  font-size: 1rem;
-  color: #721c24; /* Darker red color for the event descriptions */
-  margin-top: 10px;
+.sponsors li:last-child {
+  border-bottom: none; /* Remove the bottom border from the last item */
 }
