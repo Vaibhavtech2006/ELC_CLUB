@@ -237,6 +237,13 @@ a {
   height: 50px; /* Restore original logo size */
 }
 
+@media (max-width: 768px) {
+  .navbar .nav-links {
+      flex-direction: column;
+      margin-top: 20px;
+      padding-right: 1000px;
+  }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   /* Adjust navbar items for smaller screens */
@@ -244,6 +251,7 @@ a {
     flex-direction: column;
     padding: 20px;
     text-align: center;
+    padding-right: 1000px;
   }
 
   /* Hide the nav links by default on small screens */
@@ -251,10 +259,13 @@ a {
     display: none; /* Hide by default */
     flex-direction: column;
     margin-top: 10px;
+    padding-right: 1000px;
+
   }
 
   .nav-links li {
     margin: 10px 0;
+    padding-right: 1000px;
   }
 
   /* Display the toggle button (Hamburger Menu) */
